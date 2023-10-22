@@ -2,9 +2,11 @@ package com.ninos.service.product;
 
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.ninos.mapper.ProductMapper;
@@ -21,9 +23,10 @@ public class ProductServiceImpl implements ProductService{
 
 
     @Override
-    public List<ProductDTO> getAllProducts() {
-        List<Product> productList = productRepository.findAll();
-        return productList.stream().map(productMapper::entityToDto).collect(Collectors.toList());
+    public Page<ProductDTO> getAllProducts(int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<Product> productsPage = productRepository.findAll(pageRequest);
+        return new PageImpl<>(productsPage.getContent().stream().map(product -> productMapper.entityToDto(product)).collect(Collectors.toList()), pageRequest, productsPage.getTotalElements());
     }
 
 

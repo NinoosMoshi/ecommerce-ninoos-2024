@@ -13,13 +13,13 @@ import com.ninos.service.product.ProductService;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/products")
 public class ProductController {
 
     private final ProductService productService;
 
 
-    @GetMapping("/products")
+    @GetMapping("/get-all")
     public Page<ProductDTO> getAllProducts(@RequestParam(name = "page", defaultValue = "0") int page,
                                            @RequestParam(name = "size", defaultValue = "5") int size){
 

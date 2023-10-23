@@ -15,12 +15,12 @@ import com.ninos.service.category.CategoryService;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @GetMapping("/categories")
+    @GetMapping("/get-all")
     public Page<CategoryDTO> getAllCategories(@RequestParam(name = "page", defaultValue = "0") int page,
                                               @RequestParam(name = "size", defaultValue = "5") int size){
 

@@ -8,4 +8,8 @@ public interface ProductService {
 
     Page<ProductDTO> getAllProducts(int page, int size);
 
+    Page<ProductDTO> getProductsByCategoryId(Long id, int page, int size);
+
+    Page<ProductDTO> findByNameContaining(String name, int page, int size);
+
 }

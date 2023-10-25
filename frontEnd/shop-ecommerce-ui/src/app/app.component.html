@@ -40,7 +40,8 @@
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
+              <app-search></app-search>
+                <!-- <form action="">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for products">
                         <div class="input-group-append">
@@ -49,7 +50,7 @@
                             </span>
                         </div>
                     </div>
-                </form>
+                </form> -->
             </div>
             <div class="col-lg-3 col-6 text-right">
                 <a href="" class="btn border">
@@ -69,12 +70,14 @@
     <!-- Navbar Start -->
     <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
+
             <div class="col-lg-3 d-none d-lg-block">
                 <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
                     <h6 class="m-0">Categories</h6>
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
-                <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
+                <app-category-menu></app-category-menu>
+                <!-- <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i class="fa fa-angle-down float-right mt-1"></i></a>
@@ -84,9 +87,9 @@
                                 <a href="" class="dropdown-item">Baby's Dresses</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
-                        <a href="" class="nav-item nav-link">Swimwear</a>
+                        <a routerLink="/category/1" routerLinkActive="active-link" class="nav-item nav-link">Shirts</a>
+                        <a routerLink="/category/2" routerLinkActive="active-link" class="nav-item nav-link">Jeans</a>
+                        <a routerLink="/category/3" routerLinkActive="active-link" class="nav-item nav-link">Swimwear</a>
                         <a href="" class="nav-item nav-link">Sleepwear</a>
                         <a href="" class="nav-item nav-link">Sportswear</a>
                         <a href="" class="nav-item nav-link">Jumpsuits</a>
@@ -94,7 +97,7 @@
                         <a href="" class="nav-item nav-link">Jackets</a>
                         <a href="" class="nav-item nav-link">Shoes</a>
                     </div>
-                </nav>
+                </nav> -->
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
@@ -165,7 +168,7 @@
 
 
     <!-- Featured Start -->
-    <div class="container-fluid pt-5">
+    <!-- <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
@@ -192,12 +195,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Featured End -->
 
 
     <!-- Categories Start -->
-    <div class="container-fluid pt-5">
+    <!-- <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
@@ -254,12 +257,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Categories End -->
 
 
     <!-- Offer Start -->
-    <div class="container-fluid offer pt-5">
+    <!-- <div class="container-fluid offer pt-5">
         <div class="row px-xl-5">
             <div class="col-md-6 pb-4">
                 <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
@@ -282,12 +285,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Offer End -->
 
 
     <!-- Products Start -->
-    <div class="container-fluid pt-5">
+    <!-- <app-product-list></app-product-list> -->
+    <router-outlet></router-outlet>
+
+    <!-- <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
         </div>
@@ -429,12 +435,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Products End -->
 
 
     <!-- Subscribe Start -->
-    <div class="container-fluid bg-secondary my-5">
+    <!-- <div class="container-fluid bg-secondary my-5">
         <div class="row justify-content-md-center py-5 px-xl-5">
             <div class="col-md-6 col-12 py-5">
                 <div class="text-center mb-2 pb-2">
@@ -451,12 +457,12 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Subscribe End -->
 
 
     <!-- Products Start -->
-    <div class="container-fluid pt-5">
+    <!-- <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
         </div>
@@ -598,7 +604,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Products End -->
 
 
@@ -677,24 +683,24 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" id="BackToTop" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script> -->
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <!-- <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script> -->
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
 </body>
 
 
 
 
-<!-- <router-outlet></router-outlet> -->
+

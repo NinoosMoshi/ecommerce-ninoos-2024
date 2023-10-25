@@ -22,7 +22,7 @@ public class CategoryController {
 
     @GetMapping("/get-all")
     public Page<CategoryDTO> getAllCategories(@RequestParam(name = "page", defaultValue = "0") int page,
-                                              @RequestParam(name = "size", defaultValue = "5") int size){
+                                              @RequestParam(name = "size", defaultValue = "10") int size){
 
        return categoryService.getAllCategories(page,size);
     }

@@ -30,4 +30,20 @@ public class ProductServiceImpl implements ProductService{
     }
 
 
+    @Override
+    public Page<ProductDTO> getProductsByCategoryId(Long id, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<Product> productsByCategoryId = productRepository.findByCategoryId(id, pageRequest);
+        return new PageImpl<>(productsByCategoryId.getContent().stream().map(product -> productMapper.entityToDto(product)).collect(Collectors.toList()), pageRequest, productsByCategoryId.getTotalElements());
+    }
+
+
+    @Override
+    public Page<ProductDTO> findByNameContaining(String name, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<Product> productsPage = productRepository.findByNameContaining(name,pageRequest);
+        return new PageImpl<>(productsPage.getContent().stream().map(product -> productMapper.entityToDto(product)).collect(Collectors.toList()),pageRequest, productsPage.getTotalElements());
+    }
+
+
 }

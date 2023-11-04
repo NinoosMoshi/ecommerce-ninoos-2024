@@ -46,5 +46,12 @@ public class ProductController {
     }
 
 
+    // http://localhost:8080/api/v1/products/<productId>
+    @GetMapping("/{id}")
+    public ProductDTO getProduct(@PathVariable Long id){
+       return productService.getProductById(id);
+    }
+
+
 
 }

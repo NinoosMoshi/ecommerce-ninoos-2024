@@ -1,7 +1,9 @@
 package com.ninos.service.product;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -43,6 +45,13 @@ public class ProductServiceImpl implements ProductService{
         PageRequest pageRequest = PageRequest.of(page, size);
         Page<Product> productsPage = productRepository.findByNameContaining(name,pageRequest);
         return new PageImpl<>(productsPage.getContent().stream().map(product -> productMapper.entityToDto(product)).collect(Collectors.toList()),pageRequest, productsPage.getTotalElements());
+    }
+
+
+    @Override
+    public ProductDTO getProductById(Long id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Product With ID " + id + " Not Found"));
+        return productMapper.entityToDto(product);
     }
 
 

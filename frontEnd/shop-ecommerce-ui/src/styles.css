@@ -9161,6 +9161,7 @@ button.bg-dark:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .text-left {
@@ -9548,6 +9549,7 @@ a.text-dark:hover, a.text-dark:focus {
 .cat-item .cat-img img,
 .product-item .product-img img {
   transition: .5s;
+  cursor: pointer;
 }
 
 .cat-item:hover .cat-img img,
